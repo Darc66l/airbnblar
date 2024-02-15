@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+     padding: 10px 0;
+    z-index: 2;
+    width: 100%;
+}
+
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head-login {
+    margin-right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding-right: auto;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.logout-btn  {
+    background-color: #f44336;
+    margin-left: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 10%;
+    padding: 3px 5px;
+    cursor: pointer;
+}
