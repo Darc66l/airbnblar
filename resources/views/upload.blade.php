@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('title', 'Upload')
 
 @section('main')
+@auth
     <div class="max-w-md mx-auto pt-5 bg-gray-900 rounded-md shadow-md">
         <div class="w-full bg-white rounded-lg px-4 py-2 shadow dark:border  sm:max-w-md  dark:bg-gray-800 dark:border-gray-700">
         <h2 class="text-2xl font-semibold mb-4 text-white">Загрузка нового макета</h2>
@@ -54,6 +55,9 @@
         </form>
     </div>
     </div>
+    @else
+    <h1 class="text-center text-2xl md:text-6xl text-gray-400">You are not logged in.😥</h1>
+    @endauth
 @endsection
 
 

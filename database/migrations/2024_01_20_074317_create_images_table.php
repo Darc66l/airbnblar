@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('Path');
             $table->string('Name');
             $table->string('Description');
-            $table->string('Adress');
-            $table->integer('Price');
+            $table->string('Address');
+            $table->decimal('Price', 10, 2);
             $table->timestamps();
-            });
+        });
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 @section('title', 'About')
 @section('main')  <section class="py-10 lg:py-20 bg-stone-100 font-poppins dark:bg-gray-800">
     <div class="max-w-6xl py-4 mx-auto lg:py-6 md:px-6">

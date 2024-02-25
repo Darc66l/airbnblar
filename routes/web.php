@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
 
 Route::get('/', [ImageController::class, 'indexwelcome'])->name('home');
 
@@ -40,14 +44,18 @@ Route::controller(ImageController::class)->group(function() {
     
 });
 
+Route::get('/register', [RegisterUserController::class,'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterUserController::class,'store']);
+Route::get('/login', [LoginController::class,'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class,'login']);
+Route::post('/logout', [LoginController::class,'logout'])->name('logout');
 
-    Route::get('/register', [LoginRegisterController::class, 'register'])->name('register');
-    Route::post('/store', [LoginRegisterController::class, 'store'])->name('store');
-    Route::get('/login', [LoginRegisterController::class, 'login'])->name('login');
-    Route::post('/authenticate', [LoginRegisterController::class, 'authenticate'])->name('authenticate');
-    Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
 
-
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 
 Route::get('/about',function () {

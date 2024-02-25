@@ -1,6 +1,6 @@
 <!-- show_by_category.blade.php -->
 
-@extends('layouts.app')
+@extends('layouts.app2')
 @section('title', $sortedimages->first()->category) 
 @section('main')
     <div class="max-w mx-auto p-6 bg-gray-900 shadow-md">

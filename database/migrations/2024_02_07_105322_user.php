@@ -17,9 +17,13 @@ return new class extends Migration
             $table->string('Password');
             $table->string('Email');    
             $table->integer('Phone');
-            $table->foreign('user_id')->references('id')->on('imgaes');
+            $table->unsignedInteger('image_id')->nullable();
             $table->timestamps();
-            });
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('image_id')->references('id')->on('images');
+        });
     }
 
     /**
@@ -27,6 +31,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['image_id']);
+            $table->dropColumn('image_id');
+        });
+
+        Schema::dropIfExists('users');
     }
 };
